@@ -20,6 +20,14 @@ class TestUsers(unittest.TestCase):
         """
         self.assertEqual(self.new_user.main_user, "kevaf")
         self.assertEqual(self.new_user.main_password, "kev1234")
+    
+    def test_add_user(self):
+        """
+        test case to test if user has been added to user list
+        """
+        self.new_user.add_user() #saving a new user
+        self.assertEqual(len(Users.users_list), 1)
+
 
 
 if __name__ == '__main__':
