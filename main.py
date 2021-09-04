@@ -45,4 +45,8 @@ class Credentials:
         
         return current_user
 
-    
+    def save_credential(self):
+        """
+        Method to add new credentials to credentials lists
+        """
+        Credentials.credentials_list.append(self)
