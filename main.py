@@ -68,7 +68,7 @@ class Credentials:
         """
 
         for cred in cls.credentials_list:
-            if (cred.account== account):
+            if (cred.account == account):
                 return cred
 
 
@@ -85,3 +85,10 @@ class Credentials:
             pwd_char = random.choice(characters)
             pwd = pwd+pwd_char
         return pwd
+
+    # @classmethod
+    # def display_credentials(self):
+    #     """
+        
+    #     """
+    # pass
