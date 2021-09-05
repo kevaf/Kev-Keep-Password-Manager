@@ -85,6 +85,20 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.credentials_list), 1)
 
 
+    def test_find_by_account(self):
+        """
+        test to check if we can retrieve credential details by serching with the account name
+        """
+
+        self.new_credential.save_credential()
+        test_credential=Credentials("testacc", "testkev", "test123")
+        test_credential.save_credential()
+
+        search_credential= Credentials.find_by_account("testacc")
+        self.assertEqual(search_credential, test_credential.account)
+
+
+
 
 
 
