@@ -57,3 +57,15 @@ class Credentials:
         """
 
         Credentials.credentials_list.remove(self)
+    
+
+    @classmethod
+    def find_by_account(cls, account):
+        """
+        method to search for credential details by account name
+        """
+
+        for cred in cls.credentials_list:
+            if (cred.account== account):
+                return cred
+                
