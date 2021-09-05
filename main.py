@@ -50,3 +50,10 @@ class Credentials:
         Method to add new credentials to credentials lists
         """
         Credentials.credentials_list.append(self)
+
+    def delete_credential(self):
+        """
+        Method that removes a credential from credentials lists 
+        """
+
+        Credentials.credentials_list.remove(self)
