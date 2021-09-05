@@ -1,3 +1,5 @@
+import random
+import string
 
 class Users:
     """
@@ -68,4 +70,18 @@ class Credentials:
         for cred in cls.credentials_list:
             if (cred.account== account):
                 return cred
-                
+
+
+    def create_random_password(self):
+        """
+        method to auto generate password for users
+        """
+
+        characters = string.printable
+        pwd_len =  int(input("specify the length of your pasword: "))
+        
+        pwd=""
+        for i in range(0, pwd_len):
+            pwd_char = random.choice(characters)
+            pwd = pwd+pwd_char
+        return pwd
