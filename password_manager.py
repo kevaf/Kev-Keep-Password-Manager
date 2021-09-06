@@ -16,12 +16,13 @@ def add_user(Users):
     Users.add_user()
 
 
-def verify_user(main_user, main_password):
+def confirm_user(main_user, main_password):
     """
     function to verify a user
     """
-    confirm_user = Credentials.confirm_user(main_user, main_password)
+    confirm_user = Users.confirm_user(main_user, main_password)
     return confirm_user
+
 
 
 def add_credentials(account, username, password):
@@ -38,7 +39,7 @@ def save_credential(credential):
     Credentials.save_credential(credential)
 
 
-def create_random_password():
+def create_random_password(self):
     """
     function that generates random passwords
     """
@@ -72,11 +73,60 @@ def main():
             print("")
 
         elif code == "si":
+            print("To log in enter your username and pasword")
+            print("")
             print("Enter Username: ")
-            
+            main_user = input()
+            print("")
+            print("Enter your password")
+            main_password = input()
+            # confirm_login = verify_user(main_user, main_password)
+            if confirm_user(main_user, main_password):
+                print("")
+                print(('-')*70)
+                print(f"Welcome to your account {main_user}. What would you like to do?")
+                print(('-')*70)
+
+                while True:
+                    print("")
+                    print("Password Manger Menu \n nc-Create a new credential \n vc- View existing credentials \n ex-exit")
+                    code=input("Choose action: ").lower()
+                    if code=="nc":
+                        print("")
+                        print("Create your new Credentials: ")
+                        print("")
+                        print("Enter Account name: ")
+                        account = input()
+                        print("Enter User name: ")
+                        username = input()
+                        while True:
+                            print("")
+                            print("Choose an option for your passwords: \n gen-Generate Random Password \n ty-Type Your Preffered Password \n ex-Exit")
+                            pw_code = input().lower()
+                            print("Choose option")
+
+                            if pw_code=="gen":
+                                password = create_random_password()
+                            elif pw_code=="ty":
+                                password = input()
+                            elif pw_code=="ex":
+                                break
+
+                            
+                            
+                            
+                    elif code=="ex":
+                        break
+                    
+
+
+                
         
         elif code =='ex':
             break
+
+        else:
+            print("ALERT!!!: \nWrong input!!")
 
 
 
