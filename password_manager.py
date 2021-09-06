@@ -119,20 +119,26 @@ def main():
                             elif pw_code=="ty":
                                 print("Enter Your Password: ")
                                 password = input()
+                                print("")
+                                print(f"Your {account} credentials have been created. \n Username: {username} \n Password: {password}")
                                 break
                             elif pw_code=="ex":
                                 break
                             else:
                                 print("Wrong input, try agin")
                         save_credential(add_credentials(account, username, password)) 
-                    elif pw_code=="vc":
-                        print("")
+                    
+                    if code=="vc":
+                        print("Welcome to Your Credentials")
                        
                         if display_credentials():
                             print("View Your Credentials here: ")
                             print("")
                             for   credentials_list  in display_credentials():
                                 print(f"Account: { credentials_list .account} \n Username: { credentials_list .username} \n Password: { credentials_list .password}")
+                        
+                        else:
+                            print("Your Credentials do not exist")
 
 
 
