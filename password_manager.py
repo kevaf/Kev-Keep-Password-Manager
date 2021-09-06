@@ -32,14 +32,20 @@ def add_credentials(account, username, password):
     new_cred = Credentials(account, username, password)
     return new_cred
 
-def save_credential(credential):
+def save_credential(credentials_list):
     """
     Saves the new credentials
     """
-    Credentials.save_credential(credential)
+    Credentials.save_credential(credentials_list)
+
+def display_credentials():
+    """
+    Displays credentials
+    """
+    return Credentials.display_credentials()
 
 
-def create_random_password(self):
+def create_random_password():
     """
     function that generates random passwords
     """
@@ -102,15 +108,33 @@ def main():
                         while True:
                             print("")
                             print("Choose an option for your passwords: \n gen-Generate Random Password \n ty-Type Your Preffered Password \n ex-Exit")
-                            pw_code = input().lower()
-                            print("Choose option")
+                            pw_code = input().lower()                   
 
                             if pw_code=="gen":
+                                print("Generating your password")
                                 password = create_random_password()
+                                print("")
+                                print(f"Your {account} credentials have been created. \n Username: {username} \n Password: {password}")
+                                break
                             elif pw_code=="ty":
+                                print("Enter Your Password: ")
                                 password = input()
+                                break
                             elif pw_code=="ex":
                                 break
+                            else:
+                                print("Wrong input, try agin")
+                        save_credential(add_credentials(account, username, password)) 
+                    elif pw_code=="vc":
+                        print("")
+                       
+                        if display_credentials():
+                            print("View Your Credentials here: ")
+                            print("")
+                            for   credentials_list  in display_credentials():
+                                print(f"Account: { credentials_list .account} \n Username: { credentials_list .username} \n Password: { credentials_list .password}")
+
+
 
                             
                             

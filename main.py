@@ -73,21 +73,22 @@ class Credentials:
         for cred in cls.credentials_list:
             if (cred.account == account):
                 return cred
+    
+    @classmethod
+    def display_credentials(cls):
+        '''
+        Class method to display the list of saved credentials
+        '''
+        return cls.credentials_list
 
 
-    def create_random_password(self):
+    def create_random_password(length=10):
         """
         method to auto generate password for users
         """
 
-        characters = string.printable
-        pwd_len =  int(input("specify the length of your pasword: "))
-        
-        pwd=""
-        for i in range(0, pwd_len):
-            pwd_char = random.choice(characters)
-            pwd = pwd+pwd_char
-        return pwd
+        password = string.ascii_lowercase + string.digits + string.ascii_uppercase + "':@!#$%^&*"
+        return ''.join(random.choice(password) for _ in range(length))
 
     # @classmethod
     # def display_credentials(self):
